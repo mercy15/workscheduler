@@ -29,7 +29,7 @@
 
                         <div class="form-group">
                             <div class="text-center">
-                                <button class="btn btn-success" type="submit">
+                                <button class="form-control btn btn-success " type="submit">
                                     Add Product
                                 </button>
                             </div>

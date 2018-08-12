@@ -10,7 +10,8 @@
                             <div class="card col-lg-4" style="width: 18rem;">
                                 <img class="card-img-top" src="{{asset($product->image)}}" alt="">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$product->name}}</h5>
+                                    <h5 class="card-title">{{$product->name}} - ₦{{$product->price}}</h5>
+                                    <p class="card-text"></p>
                                     <p class="card-text">{{$product->description}}</p>
                                     <a href="#" class="btn btn-primary">Add to Cart</a>
                                 </div>
