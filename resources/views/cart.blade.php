@@ -3,7 +3,7 @@
 @section('content')  
         <div class="container">
             <div class="card">
-                <div class="card-header text-white bg-danger">My Cart - {{Cart::content()->count()}} Item(s)  <br>  Amount: ₦{{Cart::total()}}</div>
+                <div class="card-header text-white bg-danger">My Cart - {{Cart::content()->count()}} Item(s)  <br>  TOTAL AMOUNT: ₦{{Cart::total()}}  <a class="btn btn-primary float-right" href="{{route('cart.checkout')}}">Checkout</a></div>
                     <div class="card-body">
                         <div class="row">
                           

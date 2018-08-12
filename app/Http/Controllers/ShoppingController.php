@@ -35,4 +35,8 @@ class ShoppingController extends Controller
         Cart::remove($id);
         return redirect()->back();
     }
+
+    public function checkout(){
+        return view('checkout');
+    }
 }
