@@ -11,9 +11,15 @@
                                 <img class="card-img-top" src="{{asset($product->image)}}" alt="">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$product->name}} - ₦{{$product->price}}</h5>
-                                    <p class="card-text"></p>
+                                    
                                     <p class="card-text">{{$product->description}}</p>
-                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                    <form action="{{route('cart.add')}}" method="post">
+                                        {{csrf_field()}}
+                                        QUANTIY: <input type="number" name="qty" min="1" max="5" value="1">
+                                        <input type="hidden" value="{{$product->id}}" name="product_id">
+                                        <button  class="btn btn-primary" type="submit">Add to Cart</button>
+                                    </form>
+                                    
                                 </div>
                             </div>
                         @endforeach    
