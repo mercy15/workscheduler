@@ -28,5 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/cart/add','ShoppingController@add_to_cart')->name('cart.add');
 Route::get('/cart','ShoppingController@cart')->name('cart');
 Route::get('/cart/delete/{id}', 'ShoppingController@cart_delete')->name('cart.delete');
+Route::post('/cart','ShoppingController@cart_save')->name('cart.save');
 // cart checkout
 Route::get('/cart/checkout','ShoppingController@checkout')->name('cart.checkout');
+// Route::post('/wishlist','ShoppingController@cart_store')->name('wishlist');

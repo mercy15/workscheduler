@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Cart;
 use App\Product;
+use Auth;
+use DB;
 
 class ShoppingController extends Controller
 {
@@ -20,15 +22,29 @@ class ShoppingController extends Controller
             'price' => $pdt->price
             
         ]);
-
+        
         Cart::associate($cartItem->rowId, 'App\Product');
-
+        
         return redirect()->route('cart');
+        
+    }
+
+    public function cart_save(){
+
+            Cart::store(Auth::user()->id);
+            
+            return view('cart');
+        
     }
 
     public function cart(){
-        // Cart::destroy()
+        
+        Cart::restore(Auth::user()->id);
+        
+        
         return view('cart');
+        
+        
     }
 
     public function cart_delete($id){
@@ -39,4 +55,5 @@ class ShoppingController extends Controller
     public function checkout(){
         return view('checkout');
     }
+
 }

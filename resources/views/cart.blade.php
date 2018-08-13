@@ -3,11 +3,17 @@
 @section('content')  
         <div class="container">
             <div class="card">
-                <div class="card-header text-white bg-danger">My Cart - {{Cart::content()->count()}} Item(s)  <br>  TOTAL AMOUNT: ₦{{Cart::total()}}  <a class="btn btn-primary float-right" href="{{route('cart.checkout')}}">Checkout</a></div>
+                <div class="card-header text-white bg-danger">My Cart - {{Cart::content()->count()}} Item(s)  <br>  TOTAL AMOUNT: ₦{{Cart::total()}}  
+                <form action="{{route('cart.save')}}" method="post">
+                        {{ csrf_field() }}
+                            <button class="btn btn-primary btn-sm" type="submit">Save for later</button>
+                        </form>              
+                    <a class="btn btn-secondary float-right" href="{{route('cart.checkout')}}">Checkout</a>
+                </div>
                     <div class="card-body">
                         <div class="row">
-                          
-                           <table class="table">
+                        
+                        <table class="table">
                                 <thead class="thead-dark">
                                     <tr>
                                     <th scope="col">Name</th>
@@ -17,7 +23,9 @@
                                     <th scope="col"></th>
                                     </tr>
                                 </thead>
+                                 
                                 @foreach(Cart::content() as $products)
+                            
                                 <tbody>
                                     <tr>
                                     <td>{{$products->name}}</td>
@@ -30,7 +38,7 @@
                                 @endforeach                               
                                    
                                 
-                            </table>
+                        </table>
 
                            
                     </div>
